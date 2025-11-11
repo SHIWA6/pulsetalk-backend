@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: pulsetalk-backend
+    env: node
+    plan: free
+    region: singapore   # or 'frankfurt' / 'oregon' if closer to you
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: PORT
+        value: 8080
+    healthCheckPath: /
